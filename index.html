@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Credit Risk Simulation – BBB Bond Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #212121;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.4rem;
+      color: #444;
+    }
+    ul {
+      margin-left: 1.5rem;
+    }
+    code {
+      background: #eee;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+    }
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Credit Risk Simulation</h1>
+    <p>Modeling Loss Distribution of a BBB Bond Portfolio</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>📌 Project Overview</h2>
+      <p>This project models the credit risk of a bond portfolio consisting of BBB-rated bonds from two counterparties. It uses two correlation structures—(A) multivariate Gaussian and (B) Gaussian copula—to simulate 1,000,000 future portfolio values, estimate expected credit loss, and evaluate the 99% loss percentile.</p>
+    </section>
+
+    <section>
+      <h2>🧠 Objective</h2>
+      <p>The goal is to assess how the dependence structure between counterparties impacts risk predictions. Additionally, the simulation is extended to larger portfolios of 10 and 100 bonds to analyze scaling behavior of credit risk under correlated defaults.</p>
+    </section>
+
+    <section>
+      <h2>⚙️ Methodology</h2>
+      <ul>
+        <li><strong>Input Data:</strong> Marginal rating transition probabilities and valuation matrix for bond outcomes (AAA to Default).</li>
+        <li><strong>Approach A:</strong> Simulate joint outcomes using a multivariate Gaussian distribution with 0.5 correlation.</li>
+        <li><strong>Approach B:</strong> Simulate using a Gaussian copula with the same correlation structure.</li>
+        <li><strong>Simulations:</strong> For each setup, 1 million scenarios were generated to compute:
+          <ul>
+            <li>Expected credit loss</li>
+            <li>99th percentile of the loss distribution</li>
+          </ul>
+        </li>
+        <li><strong>Extension:</strong> Scale portfolio size to 10 and 100 bonds and plot 99% loss vs. number of bonds.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📈 Results Summary</h2>
+      <ul>
+        <li>The Gaussian copula structure predicted a higher tail risk than the multivariate Gaussian.</li>
+        <li>Loss percentiles increased with portfolio size but at a decreasing rate due to diversification.</li>
+        <li>Results were visualized through loss distribution histograms and percentile plots.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📁 Repository Contents</h2>
+      <ul>
+        <li><code>Numerical_Methods_Project_2.ipynb</code> – Python notebook implementing simulations and plotting results</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📚 Key Concepts</h2>
+      <ul>
+        <li><strong>Credit Risk:</strong> Probability of default and associated financial loss</li>
+        <li><strong>Copula Models:</strong> Capture non-linear dependencies between credit events</li>
+        <li><strong>Monte Carlo Simulation:</strong> Used for risk quantification under uncertainty</li>
+        <li><strong>Percentile Analysis:</strong> Helps identify tail risk under extreme conditions</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Gloria J. Yang – Numerical Methods Project 2 – Credit Risk Simulation
+  </footer>
+</body>
+</html>
